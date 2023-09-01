@@ -1,0 +1,86 @@
+*{
+    font-family: sans-serif;
+}
+
+.sejajar{
+    display: flex;
+    gap: 20px; 
+}
+
+table{
+    width: 20%;
+    height: 100%;
+    border-collapse: separate; 
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #252B48; 
+}
+
+/* grouping */
+h1, h2, h4{
+    text-align: center;
+}
+
+/* id */
+#table1{   /* Table 1 */
+    background-color: #252B48;
+    color: white;
+    
+}
+#table2{ /* Table 2 */
+    background-color: #331D2C;
+    color: white;
+}
+#table3{ /* Table 3 */
+    background-color: #2C3639;
+    color: white;
+}
+
+
+
+h1{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h2{
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+tr#main td {
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid 	#D3D3D3;
+}
+
+/* selector */
+.pesan{
+    width: 100px;
+    height: 80px;
+    text-align: center;
+    
+}
+.pesan h1{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.tombol1, .tombol2, .tombol3{
+    width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    color: aliceblue;
+}
+
+.tombol1{
+    background: #252B48 ;
+}
+.tombol2{
+    background: #3F2E3E ;
+}
+.tombol3{
+    background-color: #2C3639 ;
+}
+
