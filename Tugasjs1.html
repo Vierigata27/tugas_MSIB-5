@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+        body{
+            background-color: #635985;
+        }
+
+        header {
+            background-color: #18122B;
+            height: 100px;
+            border-radius: 10px;
+        }
+
+        #bio {
+            color: white;
+            text-align: left;
+            padding: 35px;
+            font-size: 25px;
+        }   
+
+        .box{
+            height: 550px;
+            width: 500px; 
+            border: 5px solid #393053; 
+            margin: 20px; 
+        }
+
+        .box2{
+            height: 550px;
+            width: 900px; 
+            border: 5px solid #393053; 
+            margin: 20px;
+        }
+
+        .main{
+            display: flex;
+        }
+
+        center{
+            padding-top: 80px;
+            color: white;
+        }
+
+        center h3{
+            color: #FAF8F1;
+        }
+
+        img{
+            height: 200px;
+            border-radius: 100px;
+        }
+
+        #center2{
+            padding-top: 10px;
+            color: white;
+        }
+
+        .main-box2{
+            border-bottom: 2px dashed white;
+        }
+
+        ul{
+            list-style-type: none;
+        }
+
+        li{
+            font-size: 16px;
+            padding: 5px;
+        }
+        
+    </style>
+</head>
+
+<script>
+        var nama = "Vieri Arief Maulana";
+        var Ahli = "Programmer";
+        var Alamat = "P. Wahyu Taman Sarirogo AE-19";
+        var no = "082331646363";
+        var gender = "Laki-Laki";
+        var umur = 20;
+        var Email = "21081010140@studen.upnjatim.ac.id";
+        var bahasa = "C++, PHP, HTML & CSS, Java Script"
+        var kampus = "UPN \"Veteran\" Jawa Timur"
+</script>
+
+<body>
+    <header>
+        <h1 id="bio">BIODATA</h1>
+    </header>
+
+    <div class="main">
+
+    
+    <div class="box">
+       <center><img src="Vieri.jpg" alt="">
+        <script>
+        document.write("<h1>" + nama + "</h1>");
+        document.write("<h3>" + Ahli + "</h3>");
+        </script>
+        </center>
+    </div>
+
+    <div class="box2">
+        <div class="main-box2">
+        <center id="center2">
+            <h1>About Me</h1>
+            <p>Saya adalah seorang mahasiswa jurusan Teknik Informatika yang sangat tertarik dengan dunia
+                pemrograman. Saya gemar mempelajari berbagai aspek pemrograman, mulai dari pengembangan website
+                hingga pemrograman berbasis kecerdasan buatan (AI). Saya sangat ingin belajar dan merasakan bagaimana
+                dunia kerja sebagai seorang programmer.
+            </p>
+        </center>
+        <br>
+        </div>
+        <ul>
+            <script>
+                document.write("<li>Alamat : " + Alamat + "</li>");
+                document.write("<li>No : " + no + "</li>");
+                document.write("<li>Jenis Kelamin : " + gender + "</li>");
+                document.write("<li>Umur : " + umur + "</li>");
+                document.write("<li>Kampus : " + kampus + "</li>");
+                document.write("<li>Email : " + Email + "</li>");
+                document.write("<li>Keahlian : " + bahasa + "</li>");
+            </script>
+        </ul>
+        
+        
+    </div>
+</div>
+</body>
+</html>
