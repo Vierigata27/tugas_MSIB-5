@@ -1,0 +1,36 @@
+<script>
+    let pembeli = "Vieri";
+    let barang = "Laptop";
+    let harga_satuan = 0;
+
+switch(barang){
+    case 'Komputer' : harga_satuan = 5000000; break;
+    case 'Laptop' : harga_satuan = 3000000; break;
+    case 'Handphone' : harga_satuan = 2000000; break;
+    default: harga_satuan = 0;
+}
+
+let jumlah_barang = 2;
+let bruto = harga_satuan * jumlah_barang;
+let ppn = bruto * 0.11;
+
+let diskon = 0;
+if (barang == 'Laptop') diskon = 0.2 * bruto;
+else if (barang == 'Komputer') diskon = 0.3 * bruto;
+else diskon = 0.05 * bruto;
+let hasil_diskon = bruto - diskon;
+let total_harga = hasil_diskon + ppn;
+
+
+
+
+document.write("Nama : " + pembeli + "<br>Barang : " + barang + 
+"<br>Harga Satuan : " + harga_satuan+
+"<br>Jumlah Barang : " + jumlah_barang +
+"<br>Total Harga (sebelum Diskon) : " + bruto +
+"<br>Diskon : " + diskon + 
+"<br>Total harga : " + total_harga
+);
+
+
+</script>

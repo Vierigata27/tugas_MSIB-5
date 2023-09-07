@@ -1,0 +1,18 @@
+<script>
+    let pelanggan = "Vieri Arief M";
+    let TotalBelanja = 150000;
+    let keterangan = '';
+
+    if(TotalBelanja > 100000){
+        keterangan = "Selamat Datang " + pelanggan + ", Selamat anda mendapatkan diskon 20%";
+    } else {
+        keterangan = "Terima Kasih " + pelanggan + "Sudah Berbelanja";
+    }
+    document.write("Pelanggan : " + pelanggan + "<br> Total Belanja : " + TotalBelanja + "<br> Keterangan : " + keterangan);
+    
+    let siswa = "Vieri Arief Maulana";
+    let nilai = 50;
+    let ket = (nilai >= 60) ? "Lulus" : "Gagal";
+    document.write("<br>Siswa: " + siswa + "<br>Nilai: " + nilai + "<br>Status: " + ket);
+
+</script>
