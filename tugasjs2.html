@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan 2 Java Script</title>
+</head>
+<body>
+    <center><h2>Tugas Java Script 2</h2></center>
+    <center><h4>Dibuat Oleh : Vieri Arief Maulana</h4></center>
+    <script>
+        let nama = "Ridwan";
+        let jabatan = "Manager";
+        let status = "Menikah";
+        let gaji_pokok = 0;
+        let tunjangan_keluarga = 0;
+
+        if(jabatan == 'Manager'){
+            gaji_pokok = 15000000;
+        } else if (jabatan == 'Asisten Manager'){
+            gaji_pokok = 10000000;
+        } else {
+            gaji_pokok = 5000000;
+        }
+        let tunjangan_jabatan = 0.15 * gaji_pokok;
+        let bpjs = 0.10 * gaji_pokok;
+
+        if(status == 'Menikah'){
+            tunjangan_keluarga = 0.20 * gaji_pokok;
+        } else{
+            tunjangan_keluarga = 0;
+        }
+
+        let total_gaji = gaji_pokok + tunjangan_jabatan + bpjs + tunjangan_keluarga;
+
+        document.write("<h3>Cetak Data Pegawai</h3>");
+        document.write("Nama : " + nama +
+        "<br>Jabatan : " + jabatan +
+        "<br>Status : " + status +
+        "<br>Gaji Pokok : Rp." + gaji_pokok.toLocaleString('id-ID') +
+        "<br>Tunjangan Jabatan : Rp." + tunjangan_jabatan.toLocaleString('id-ID') +
+        "<br>BPJS : Rp." + bpjs.toLocaleString('id-ID') +
+        "<br>Tunjangan Keluarga (ternary) : " + tunjangan_keluarga.toLocaleString('id-ID') +
+        "<br>Total Gaji : Rp." + total_gaji.toLocaleString('id-ID')
+        );
+
+    </script>
+</body>
+</html>
