@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 3 JavaScript</title>
+</head>
+<body>
+    <table style="padding: 10; text-align: center; width: 100%; ">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Divisi</th>
+                <th>Gaji Pokok</th>
+                <th>Tunjangan Jabatan</th>
+                <th>Tunjangan Kesehatan</th>
+                <th>Agama</th>
+                <th>Zakat Profesi</th>
+                <th>Take Home Pay</th>
+            </tr>
+        </thead>
+        <tbody>
+            <script>
+                let p1 = { 'nama': 'Pegawai 1' };
+                let p2 = { 'nama': 'Pegawai 2' };
+                let p3 = { 'nama': 'Pegawai 3' };
+                let p4 = { 'nama': 'Pegawai 4' };
+                let p5 = { 'nama': 'Pegawai 5' };
+                let p6 = { 'nama': 'Pegawai 6' };
+                let p7 = { 'nama': 'Pegawai 7' };
+                let p8 = { 'nama': 'Pegawai 8' };
+                let p9 = { 'nama': 'Pegawai 9' };
+                let p10 = { 'nama': 'Pegawai 10' };
+
+                let pegawai = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
+                var no = 1;
+
+                for (const p of pegawai) {
+                    let jabatan, gaji_pokok;
+
+                    if (no >= 1 && no <= 25) {
+                        jabatan = "Manager";
+                    } else if (no >= 26 && no <= 50) {
+                        jabatan = "Asisten Manager";
+                    } else if (no >= 51 && no <= 75){
+                        jabatan = "Super Visor";
+                    } else if (no >= 76 && no <= 100){
+                        jabatan = "Staff";
+                    } else{
+                        jabatan = "Error";
+                    }
+
+                    switch (jabatan){
+                        case "Manager" : gaji_pokok = 15000000; break;
+                        case "Asisten Manager" : gaji_pokok = 10000000; break;
+                        case "Super Visor" : gaji_pokok = 7000000; break;
+                        case "Staff" : gaji_pokok = 4000000; break;
+                        default : gaji_pokok = " Error "; break;
+                    }
+
+                    let tunjangan_jabatan = 0.20 * gaji_pokok;
+                    let tunjangan_kesehatan = 0.10 * gaji_pokok;
+                    let gaji_kotor = gaji_pokok + tunjangan_jabatan + tunjangan_kesehatan;
+
+                    let agama = (no % 2 == 1) ? "Muslim" : "Non Muslim";
+                    var warna;
+                    var font;
+                    let zakatProfesi = "";
+                    let takeHomePay = 0;
+
+                    if (agama == 'Muslim'){
+                        warna = "Yellow";
+                        font = "black";
+                    } else{
+                        warna = "blue";
+                        font = "white";
+                    }  
+
+                    if (agama === 'Muslim' && gaji_kotor >= 7000000){
+                        zakatProfesi = gaji_kotor * 0.025;
+                        takeHomePay = gaji_kotor - zakatProfesi;
+                    } else if (agama === 'Muslim' && gaji_kotor <= 7000000 ){
+                        zakatProfesi = "Belum Berhak Untuk Zakat Profesi";
+                        takeHomePay = gaji_kotor;
+                    }else{
+                        zakatProfesi = "Non Muslim";
+                        takeHomePay = gaji_kotor;
+                    }
+                    
+
+                    document.write(`
+                        <tr style="background-color: ${warna}; color: ${font};">
+                            <td>${no++}</td>
+                            <td>${p.nama}</td>
+                            <td>${jabatan}</td>
+                            <td>${gaji_pokok.toLocaleString('id-ID')}</td>
+                            <td>${tunjangan_jabatan.toLocaleString('id-ID')}</td>
+                            <td>${tunjangan_kesehatan.toLocaleString('id-ID')}</td>
+                            <td>${agama}</td>
+                            <td>${zakatProfesi.toLocaleString('id-ID')}</td>
+                            <td>${takeHomePay.toLocaleString('id-ID')}</td>
+                        </tr>
+                    `);
+                }
+            </script>
+        </tbody>
+    </table>
+</body>
+</html>
