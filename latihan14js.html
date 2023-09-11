@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fungsi Dan Event Header</title>
+</head>
+<body>
+    <form id="frm">
+        Nama : <input type="text" name="nama" placeholder="Silahkan Masukan Nama Anda"> <br>
+        Kelas : <input type="text" name="kelas" placeholder="Silahkan Masukan Kelas Anda"> <br>
+        <input type="button" name="proses" value="Proses" onclick="buat()">
+
+        <h2 id="hasil"></h2>
+    </form>
+
+    <script>
+        function buat() {
+            let siswa = document.getElementById('frm').nama.value;
+            let kelas = document.getElementById('frm').kelas.value;
+            let input = 'Selamat Pagi, ' + siswa + '<br> Kelas: ' + kelas ;
+        
+            // Menampilkan hasil di dalam elemen dengan ID 'hasil'
+            document.getElementById('hasil').innerHTML = input;
+        }
+    </script>
+</body>
+</html>
