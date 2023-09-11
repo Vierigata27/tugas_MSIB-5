@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 4 JavaScript</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        body {
+            background-color: #f5e5c4;
+            
+        }
+
+        header {
+            background-color: #ebc178;
+            width: 100%;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo h2 {
+            font-size: 24px;
+            padding-right: 1000px;
+        }
+
+        a {
+         text-decoration: none; 
+         color: black; 
+         transition: color 0.3s ease;
+        }
+
+        a:hover{
+         color: white;
+        }
+
+        .main{
+        padding: 30px;
+        height: auto;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h2>Tugas JavaScript 4</h2>
+        </div>
+    </header>
+
+    <div class="main">
+        <h2><center>Toko Online</center></h2>
+        <form id="plg">
+            <table>
+                <tr>
+                    <td><label for="">Nama </label></td>
+                    <td><input type="text" name="nama" id="" placeholder="Masukan Nama Anda"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="produk">Produk </label></td>
+                    <td>
+                        <select id="produk" name="produk">
+                        </select>
+                </td>
+                </tr>
+
+                <tr>
+                    <td><label for="jumlah">Jumlah Produk </label></td>
+                    <td> <input type="number" id="jumlah" name="jumlah"></td>
+                </tr>
+
+                <tr>
+                    <th colspan="2"><button type="button" name="proses" onclick="data_pembeli()">Beli</button></th>
+                </tr>
+            
+        </table>
+        </form>
+
+        <script>
+            let p1 = { 'barang': 'TV' };
+            let p2 = { 'barang': 'AC' };
+            let p3 = { 'barang': 'Kulkas' };
+   
+            let produk = [p1, p2, p3];
+            let listproduk = document.getElementById('produk');
+
+           function harga_barang(produk) {
+               switch (produk) {
+                   case 'TV':
+                       return 2000000;
+                   case 'AC':
+                       return 3000000;
+                   case 'Kulkas':
+                       return 4000000;
+                   default:
+                       return 0;
+               }
+           }
+           
+           for (let i = 0; i < produk.length; i++) {
+               let option = document.createElement('option');
+               option.value = produk[i].barang;
+               option.textContent = `${produk[i].barang}, Rp.${harga_barang(produk[i].barang)}`;
+               listproduk.appendChild(option);
+           }
+       </script>
+       <br>
+
+       <script src="Tugasjs4.js"></script>
+    </div>
+
+</body>
+</html>
