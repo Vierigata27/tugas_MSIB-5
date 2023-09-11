@@ -44,6 +44,7 @@ function data_pembeli() {
         \nNama : ${nama}
         \nProduk : ${produk}
         \nJumlah : ${jumlah}
+        \nHarga Satuan : Rp ${harga_barang.toLocaleString('id-ID')}
         \nHarga Kotor : Rp ${harga_kotor.toLocaleString('id-ID')}
         \nDiskon : Rp ${diskon.toLocaleString('id-ID')}
         \nPPN : Rp ${ppn.toLocaleString('id-ID')}
