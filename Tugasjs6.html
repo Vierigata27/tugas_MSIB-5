@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 6 Javascript</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* font-family: 'Luckiest Guy', cursive; */
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        body {
+            background-color: #f5e5c4;
+            
+            
+        }
+
+        header {
+            background-color: #ebc178;
+            width: 100%;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo{
+            display: flex;
+            padding-right: 650px;
+        }
+
+        .logo h2 {
+            font-size: 24px;
+            padding-top: 40px;
+            padding-left: 15px;
+        }
+
+        .logo img{
+            height: 100px;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .main ul {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        li {
+            margin: 0 15px;
+            margin-top: 20px;
+        }
+
+        a {
+         text-decoration: none; 
+         color: black; 
+         transition: color 0.3s ease;
+        }
+
+        a:hover{
+         color: white;
+        }
+
+        .main{
+        padding: 30px;
+        height: auto;
+        }
+
+    </style>
+</head>
+<script>
+    var nama = "Vieri Arief Maulana";
+    var Ahli = "Programmer";
+    var Alamat = "P. Wahyu Taman Sarirogo AE-19";
+    var no = "082331646363";
+    var gender = "Laki-Laki";
+    var umur = 20;
+    var Email = "21081010140@studen.upnjatim.ac.id";
+    var bahasa = "C++, PHP, HTML & CSS, Java Script"
+    var kampus = "UPN \"Veteran\" Jawa Timur"
+</script>
+
+<script>
+    $(document).ready(function () {
+        $(".main").hide();
+
+        $("#profil").click(function () {
+            $(".main").hide();
+            $("#profil-main").show();
+        });
+
+        // Tampilkan data Moto Hidup saat tombol "Moto Hidup" diklik
+        $("#motohidup").click(function () {
+            $(".main").hide();
+            $("#moto-main").show();
+        });
+
+        // Tampilkan data Keahlian saat tombol "Keahlian" diklik
+        $("#keahlian").click(function () {
+            $(".main").hide();
+            $("#keahlian-main").show();
+        });
+    });
+</script>
+<body>
+    <header>
+        <div class="logo">
+            <img src="" alt="">
+            <h2>Tugas 6 Javascript</h2>
+        </div>
+        <ul>
+            <li><a id="profil">PROFIL</a> </li>
+            <li><a id="motohidup">MOTO HIDUP</a> </li>
+            <li><a id="keahlian">KEAHLIAN</a> </li>
+        </ul>
+    </header>
+
+    <div class="main" id="profil-main">
+        <center><h2>Profil</h2></center>
+        <p>Saya adalah seorang mahasiswa jurusan Teknik Informatika yang sangat tertarik dengan dunia
+            pemrograman. Saya gemar mempelajari berbagai aspek pemrograman, mulai dari pengembangan website
+            hingga pemrograman berbasis kecerdasan buatan (AI). Saya sangat ingin belajar dan merasakan bagaimana
+            dunia kerja sebagai seorang programmer.
+        </p>
+        <ul>
+            <script>
+                document.write("<li>Nama : " + nama + "</li>");
+                document.write("<li>Kampus : " + kampus + "</li>");
+                document.write("<li>Alamat : " + Alamat + "</li>");
+                document.write("<li>No : " + no + "</li>");
+                document.write("<li>Jenis Kelamin : " + gender + "</li>");
+                document.write("<li>Umur : " + umur + "</li>");
+                document.write("<li>Email : " + Email + "</li>");
+            </script>
+        </ul>
+    </div>
+
+    <div class="main" id="moto-main">
+        <center><h2>Moto Hidup</h2></center>
+        <p>Hidup Seperti Larry >_<
+        </p>
+    </div>
+
+    <div class="main" id="keahlian-main">
+        <center><h2>Keahlian</h2></center>
+        
+        <ul>
+            <script>
+            document.write("<li>Keahlian : " + bahasa + "</li>");
+            </script>
+
+        </ul>
+    </div>
+
+</body>
+</html>

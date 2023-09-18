@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="jquery4.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#div1").mouseover(function(){
+                $(this).css({
+                    background: "url('asset/ayam.jpg')"
+                });
+            });
+            $("#div2").mouseover(function(){
+                $(this).css({
+                    background: "url('asset/bebek.jpg')"
+                });
+            });
+            $("#div3").mouseover(function(){
+                $(this).css({
+                    background: "#blue"
+                });
+            });
+            $("#div1").mouseout(function(){
+                $(this).css({
+                    background: "#blue"
+                });
+            });
+            $("#div2").mouseout(function(){
+                $(this).css({
+                    background: "#blue"
+                });
+            });
+            $("#div3").mouseout(function(){
+                $(this).css({
+                    background: "url('asset/burung.jpeg')"
+                });
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <h2>Letakan Kursor ke masing masing kotak untuk melihat gambar</h2>
+
+    <div id="div1">Hewan Ayam</div>
+    <div id="div2">Hewan Bebek</div>
+    <div id="div3">Hewan Burung</div>
+</body>
+</html>
