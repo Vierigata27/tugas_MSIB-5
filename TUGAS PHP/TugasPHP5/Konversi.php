@@ -1,26 +1,14 @@
 <?php
 
-function cekLogin(){
-    if (isset($_POST['username']) && isset($_POST['password'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-        if ($username === 'admin' && $password === 'mimin') {
-            // Redirect ke halaman lain atau lakukan tindakan lain
-            header('Location: Admin.php');
-            exit;
-        } else {
-            echo "<script type='text/javascript'>";  
-            echo "window.alert('Maaf, Password/Username Anda Salah')";  
-            echo "</script>"; 
-        }
-    }
-}
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    cekLogin();
-}
-
+require 'suhu.php';
+$k1 = new konversiSuhu ('Celcius','Fahrenheit',30);
+$k2 = new konversiSuhu ('Celcius','Fahrenheit',100);
+$k3 = new konversiSuhu ('Fahrenheit','Celcius',50);
+$k4 = new konversiSuhu ('Fahrenheit','Celcius',10);
+$k5 = new konversiSuhu ('Celcius','Reamur',120);
+$k6 = new konversiSuhu ('Celcius','Reamur',40);
+$k7 = new konversiSuhu ('Reamur','Celcius',30);
+$k8 = new konversiSuhu ('Reamur','Celcius',100);
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugas PHP 4</title>
+    <title>Tugas PHP 3</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Quicksand:wght@300&display=swap" rel="stylesheet">
@@ -99,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         footer {
         background-color: #ebc178;
         width: 100%;
-        height: 100px;
+        height: auto;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -116,51 +104,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         vertical-align: middle;
         }
 
-        
-        .form_login {
-        width: 500px; 
-        margin: 0 auto; 
-        padding: 20px;
-        border: 1px solid #ffff; 
+        table{
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .form_login h2 {
-        font-size: 24px; 
-        margin-bottom: 20px; 
+        th, td{
+            width: 150px;
         }
-
-        .form_login input[type="text"],
-        .form_login input[type="password"] {
-        width: 100%;
-        padding: 10px; 
-        margin-bottom: 15px; 
-        border: 1px solid #ccc; 
-        border-radius: 5px; 
-        }
-
-        .form_login button[type="submit"] {
-        width: 100%; 
-        padding: 10px; 
-        background-color: #ebc178; 
-        color: #fff; 
-        border: none; 
-        border-radius: 5px; 
-        cursor: pointer; 
-        }
-
-        .form_login button[type="submit"]:hover {
-        background-color: #ffff; 
-        color: black; 
-        }
-
-
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
             <img src="logo.png" alt="">
-            <h2>Tugas PHP 4</h2>
+            <h2>Tugas PHP 5</h2>
         </div>
         <ul>
             <li><a href="">MAIN</a> </li>
@@ -169,22 +127,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </ul>
     </header>
 
-    <div class="main">
-    
-
-    <div class="form_login">
-        <form action="" method="Post">
-        <h2>Form Login</h2>
-        <input type="text" name="username" id="username" placeholder="Masukan Username Anda " required>
-
-        <input type="password" name="password" id="password" placeholder="Masukan Password Anda " required>
-
-        <button type="submit"  name="masuk">Masuk</button>
-
-        </form>
-
-    </div>
-       
+    <div class="main" scroll>
+    <h2>Data Konversi</h2>
+    <br>
+        <?php
+            $k1->cetak();
+            $k2->cetak();
+            $k3->cetak();
+            $k4->cetak();
+            $k5->cetak();
+            $k6->cetak();
+            $k7->cetak();
+            $k8->cetak();
+        ?>
     </div>
 
     <footer>
