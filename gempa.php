@@ -13,6 +13,6 @@ class Gempa{
         $this->skala = $skala;
         
     }
-
+}
 
 ?>
