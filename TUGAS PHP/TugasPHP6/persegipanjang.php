@@ -14,6 +14,11 @@ class PersegiPanjang extends Bentuk2D{
         return "Persegi Panjang";
     }
 
+    public function Keterangan(){
+        return "Panjang = ".$this->panjang." Lebar = ".$this->lebar;
+    }
+
+
     public function luasBidang() {
         $luas = $this->panjang * $this->lebar;
         return $luas;

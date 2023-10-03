@@ -10,7 +10,7 @@ $s1 = new Segitiga (9,12);
 
 $data = [$l1, $p1, $s1];
 
-$judul = ["No", "Nama Bidang", "Luas Bidang", "Keliling Bidang" ];
+$judul = ["No", "Nama Bidang","Keterangan", "Luas Bidang", "Keliling Bidang" ];
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +40,7 @@ $judul = ["No", "Nama Bidang", "Luas Bidang", "Keliling Bidang" ];
       echo "<tr>";
       echo "<td>" . ($total + 1) . "</td>";
       echo "<td>" . $objek->namaBidang() . "</td>";
+      echo "<td>" . $objek->Keterangan() . "</td>";
       echo "<td>" . $objek->luasBidang() . "</td>";
       echo "<td>" . $objek->kelilingBidang() . "</td>";
       echo "</tr>";
