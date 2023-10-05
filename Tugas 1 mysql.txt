@@ -1,0 +1,43 @@
+//Meampilkan DATABASES yang sudah dibuat
+SHOW DATABASES;
+
+//Membuat database baru
+CREATE DATABASE dbpegawai;
+
+//Masuk database yang telah di buat
+use dbpegawai;
+
+//Menampilkan Tabel di database dbpegawai
+SHOW TABLES;
+
+//Membuat table di dbpegawai
+CREATE TABLE pegawai(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    nip char(5) NOT NULL UNIQUE,
+    nama varchar(30) NOT NULL,
+    gender ENUM('L','P') NOT NULL,
+    umur int NOT NULL,
+    berat_badan fLOAT
+);
+
+//Meampilkan DATABASES yang sudah dibuat
+SHOW DATABASES;
+
+//untuk melihat detail table 
+DESC pegawai;
+
+//Query untuk tugas 1 MYSQL
+SHOW DATABASES;
+CREATE DATABASE dbpegawai;
+use dbpegawai;
+SHOW TABLES;
+CREATE TABLE pegawai(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    nip char(5) NOT NULL UNIQUE,
+    nama varchar(30) NOT NULL,
+    gender ENUM('L','P') NOT NULL,
+    umur int NOT NULL,
+    berat_badan fLOAT
+);
+SHOW DATABASES;
+DESC pegawai;
