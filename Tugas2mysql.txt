@@ -1,0 +1,38 @@
+//Masuk database yang telah di buat
+use dbpegawai;
+
+//Membuat table vendor di dbpegawai
+CREATE TABLE vendor(
+    nomor int PRIMARY KEY AUTO_INCREMENT,
+    nama varchar(100),
+    kota varchar(100),
+    kontak varchar(100)
+);
+
+//Membuat table pembelian di dbpegawai
+CREATE TABLE pembelian(
+    tanggal DATE,
+    no int PRIMARY KEY AUTO_INCREMENT,
+    produk_id int,
+    jumlah int,
+    harga varchar(100),
+    vendor_id int,
+    FOREIGN KEY(produk_id) REFERENCES produk(id),
+    FOREIGN KEY(vendor_id) REFERENCES vendor(nomor)
+);
+
+//Mengisi data pada tabel vendor (dengan minimal 5 data)
+INSERT INTO `vendor` (`nomor`, `nama`, `kota`, `kontak`) 
+VALUES ('', 'Samsung', 'Jakarta', '08888888'), 
+('', 'Panasonic', 'Bandung', '145555555'),
+('', 'Xiaomi', 'Semarang', '456666666'),
+('', 'TCL', 'Surabaya', '012222222'),
+('', 'Sharp', 'Sidoarjo', '77777777');
+
+//Mengisi data pada tabel Pembelian (dengan minimal 5 data)
+INSERT INTO `pembelian` (`tanggal`,`no`, `produk_id`, `Jumlah`, `harga`,`vendor_id`) 
+VALUES ('2023-10-06', '', '1', '1', '4000000', '1'), 
+('2023-10-02', '', '1', '2', '4000000', '2'),
+('2023-10-05', '', '1', '2', '8000000', '3'),
+('2023-10-03', '', '1', '1', '4000000', '4'),
+('2023-10-15', '', '1', '3', '12000000', '5');
