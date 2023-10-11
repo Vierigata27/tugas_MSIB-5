@@ -1,0 +1,127 @@
+            // Tugas worksheet 3 //
+    //SOAL 3.2//
+   1.	Berapa jumlah pelanggan yang tahun lahirnya 1998
+   SELECT COUNT(*) as jumlah_pelanggan 
+   FROM pelanggan 
+   WHERE YEAR(tgl_lahir) = 1998;
+
+   2.	Berapa jumlah pelanggan perempuan yang tempat lahirnya di Jakarta
+   SELECT COUNT(*) as jumlah_pelanggan_perempuan
+   FROM pelanggan
+   WHERE jk = 'perempuan' AND tmp_lahir= 'Jakarta';
+
+   3.	Berapa jumlah total stok semua produk yang harga jualnya dibawah 10rb
+   SELECT COUNT(*) as total_stok
+   FROM produk
+   WHERE harga_jual < 10000;
+
+   4.	Ada berapa produk yang mempunyai kode awal K
+   SELECT COUNT(*) as awalan_produk
+   FROM produk
+   WHERE LEFT(kode, 1) = 'K';
+
+   5.	Berapa harga jual rata-rata produk yang diatas 1jt
+   SELECT AVG(harga_jual) as rata_rata
+   FROM produk
+   WHERE harga_jual > 1000000;
+
+   6.	Tampilkan jumlah stok yang paling besar
+   SELECT MAX(stok) as stok_terbanyak
+   FROM produk;
+
+   7.	Ada berapa produk yang stoknya kurang dari minimal stok
+   SELECT COUNT(*) as Jumlah_produk_yang_stok_kurang
+   FROM produk
+   WHERE stok < min_stok;
+
+   8.	Berapa total asset dari keseluruhan produk
+   SELECT SUM(harga_beli * stok) as total_asset
+   FROM produk;
+
+   //SOAL 3.3//
+
+   1.	Tampilkan data produk : id, nama, stok dan informasi jika stok telah sampai batas minimal atau kurang dari minimum stok dengan informasi ‘segera belanja’ jika tidak ‘stok aman’.
+   SELECT id, nama, stok,
+      CASE 
+      WHEN stok <= min_stok THEN 'segera belanja'
+      ELSE 'stok aman'
+      END as status_stok
+      FROM produk;
+
+   2.	Tampilkan data pelanggan: id, nama, umur dan kategori umur : jika umur < 17 → ‘muda’ , 17-55 → ‘Dewasa’, selainnya ‘Tua’
+   SELECT id, nama, TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) as umur,
+   CASE 
+      WHEN TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) < 17 THEN 'Muda'
+      WHEN TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) < 55 THEN 'Dewasa'
+      ELSE 'Tua'
+   END as kategori_umur
+   FROM pelanggan;
+
+   3.	Tampilkan data produk: id, kode, nama, dan bonus untuk kode ‘TV01’ →’DVD Player’ , ‘K001’ → ‘Rice Cooker’ selain dari diatas ‘Tidak Ada’
+   SELECT id, kode, nama,
+   CASE
+   WHEN kode = 'TV01' THEN 'DVD PLAYER'
+   WHEN kode = 'K001' THEN 'RICE COOKCER'
+   ELSE 'Tidak Ada'
+   END as 'Bonus'
+   FROM produk;
+   
+   //SOAL 3.4//
+   1.	Tampilkan data statistik jumlah tempat lahir pelanggan
+   SELECT tmp_lahir, COUNT(*) as jumlah_pelanggan
+   FROM pelanggan
+   GROUP BY tmp_lahir;
+
+   2.	Tampilkan jumlah statistik produk berdasarkan jenis produk
+   SELECT jenis_produk, COUNT(*) as jumlah_produk
+   FROM produk
+   GROUP BY jenis_produk;
+
+   3.	Tampilkan data pelanggan yang usianya dibawah rata usia pelanggan
+   SELECT id, nama, TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) as umur
+   FROM pelanggan
+   WHERE TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) < (SELECT AVG(TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE())) FROM pelanggan);
+
+   4.	Tampilkan data produk yang harganya diatas rata-rata harga produk
+   SELECT id, nama, harga_jual
+   FROM produk
+   WHERE harga_jual > (SELECT AVG(harga_jual) FROM produk);
+
+   5.	Tampilkan data pelanggan yang memiliki kartu dimana iuran tahunan kartu diatas 90rb
+   SELECT p.*
+   FROM pelanggan p
+   JOIN kartu k ON p.kartu_id= k.id
+   WHERE k.iuran > 90000;
+
+   6.	Tampilkan statistik data produk dimana harga produknya dibawah rata-rata harga produk secara keseluruhan
+   SELECT id, nama, harga_jual
+   FROM produk
+   WHERE harga_jual < (SELECT AVG(harga_jual) FROM produk);
+
+   7.	Tampilkan data pelanggan yang memiliki kartu dimana diskon kartu yang diberikan diatas 3%
+   SELECT p.*
+   FROM pelanggan p
+   JOIN kartu k ON p.kartu_id= k.id
+   WHERE k.diskon > 3;
+
+                  //Tugas Normalisasi//
+
+      //Tabel Personel//				
+   ID Personel	Nama	Alamat	   Kesatuan	   Agama
+   1	Faiz Fikri	   Depok 1	      AD	      Islam
+   2	John Sadewa	   Bekasi Timur	AD	      Katolik
+   3	Dewi Sri	      Bogor	         AU	      Hindu
+   4	Ahmad Bayu	   Jakarta Timur	AL	      Islam
+   5	Ike Rahayu	   Tanggerang	   AL	      Budha
+             
+      //Tabel Surat Tugas//				
+No	ID Personel	No Surat Tugas	Mulai	Akhir	Kota	      Wilayah
+1	1	ST.001/2008	01/01/2008	05/01/2008	Bandung	   Wilayah II
+2	1	ST.030/2009	06/01/2009	20/04/2011	Samarinda	Wilayah III
+3	1	ST.021/2011	21/04/2011	30/12/2014	Jakarta	   Wilayah II
+4	2	ST.002/2010	01/01/2010	31/12/2010	Medan	      Wilayah I
+5	2	ST.001/2011	01/01/2011	31/12/2011	Jakarta	   Wilayah II
+6	3	ST.002/2011	01/01/2011	31/12/2012	Denpasar	   Wilayah IV
+7	4	ST.008/2011	01/01/2011	31/12/2012	Jakarta	   Wilayah II
+8	5	ST.003/2009	01/01/2009	31/12/2010	Yogyakarta	Wilayah IV
+9	5	ST.100/2010	01/01/2010	31/12/2011	Balikpapan	Wilayah III
