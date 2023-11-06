@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LihatNilaiController;
+use App\Http\Controllers\DashboarddController;
+use App\Http\Controllers\PagenotController;
+use App\Http\Controllers\KartuController;
+use App\Http\Controllers\JenisProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +44,10 @@ Route::get('/daftarnilai', function () {
 });
 
 Route::get('/datamahasiswa', [LihatNilaiController::class, 'dataMahasiswa']);
+
+Route::get('/dashboard', [DashboarddController::class, 'index']);
+Route::get('/notfound', [PagenotController::class, 'index']);
+
+//memanggil seluruh fungsi
+Route::resource('kartu', KartuController::class);
+Route::resource('jenis', JenisProdukController::class);
