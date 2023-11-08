@@ -3,20 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Pelanggan;
+use App\Models\Produk;
+use App\Models\Jenis_produk;
+use Illuminate\Support\Facades\DB;
 
-
-class PelangganController extends Controller
+class ProdukController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
-        $pelanggan = Pelanggan::all();
-        return view('admin.pelanggan.index',['pelanggan' => $pelanggan]);
-
+        //produk berelasi dengan jenis_produk
+        $produk = Produk::join('jenis_produk', 'jenis_produk_id', '=', 'jenis_produk.id')
+        ->select('produk.*', 'jenis_produk.nama as jenis')
+        ->get();
+        return view ('admin.produk.index', compact('produk'));
     }
 
     /**
@@ -37,7 +39,7 @@ class PelangganController extends Controller
 
     /**
      * Display the specified resource.
-     */
+     */ 
     public function show(string $id)
     {
         //

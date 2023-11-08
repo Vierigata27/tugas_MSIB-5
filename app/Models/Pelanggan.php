@@ -10,11 +10,13 @@ class Pelanggan extends Model
     use HasFactory;
 
     protected $table = 'pelanggan';
-    //mapping kolom atau field
-    protected $fillable = ['kode', 'nama', 'jk','tmp_lahit','tgl_lahir','email','kartu_id'];
-    //relasi one to many ke table yang berhubungan dengan produk
-    public function kartu(){
-        return $this->hasOne(Kartu::class);
-    }
 
+    // Mapping kolom atau field
+    protected $fillable = ['kode', 'nama', 'jk', 'tmp_lahir', 'tgl_lahir', 'email', 'kartu_id'];
+
+    // Relasi many-to-one ke table yang berhubungan dengan kartu
+    public function kartu()
+    {
+        return $this->belongsTo(Kartu::class, 'kartu_id', 'id');
+    }
 }

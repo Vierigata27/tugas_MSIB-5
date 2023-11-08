@@ -6,6 +6,8 @@ use App\Http\Controllers\DashboarddController;
 use App\Http\Controllers\PagenotController;
 use App\Http\Controllers\KartuController;
 use App\Http\Controllers\JenisProdukController;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\PelangganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,3 +53,7 @@ Route::get('/notfound', [PagenotController::class, 'index']);
 //memanggil seluruh fungsi
 Route::resource('kartu', KartuController::class);
 Route::resource('jenis', JenisProdukController::class);
+
+Route::get('/produk', [ProdukController::class, 'index']);
+
+Route::resource('pelanggan', PelangganController::class);
